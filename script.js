@@ -51,8 +51,8 @@ $(document).ready(function(){
 				$("#ssound")[0].play();
 				
 				var timer = setInterval(function(){
-					$("#im").animate({ marginLeft: "30px" }, 50, "", function () {
-						$(this).animate({ marginLeft: "0px" }, 50, "", function () { 
+					$("#im").animate({ marginLeft: "30px" }, 300, "", function () {
+						$(this).animate({ marginLeft: "0px" }, 300, "", function () { 
 						 });
 					});
 					clearInterval(timer);    
