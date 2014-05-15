@@ -4,11 +4,11 @@ $(document).ready(function(){
 	var temp_xx = 0;
 	var count = 0;
 	console.log("ready");	
-	
-	$('#im').click(function(){
 
-	$("#ssound")[0].load();
-	$("#ssound")[0].play();
+	$('#im').click(function(){
+		
+		$("#ssound")[0].load();
+		$("#ssound")[0].play();
 		
 	});
 
@@ -30,7 +30,9 @@ $(document).ready(function(){
 			}
 			$("#tVal").html(count);
 			$("#cVal").html(temp_x);
+			
 		}else if(count === 1){
+			
 			temp_xx = (Number(number1));
 			$("#tVal").html(count);
 			$("#aVal").html(temp_xx);
@@ -47,16 +49,18 @@ $(document).ready(function(){
 				count++;
 				$("#ssound")[0].load();
 				$("#ssound")[0].play();
-				setTimeout(function(){count = 0;},1100);
+				
+				var timer = setInterval(function(){
+					$("#im").animate({ marginLeft: "3px" }, 50, "", function () {
+						$(this).animate({ marginLeft: "0px" }, 50, "", function () { 
+						 });
+					});
+					clearInterval(timer);    
+					}, 1000);
+
+				setTimeout(function(){count = 0;},600);
 			}		
 
-			/*
-			if( temp_x != Math.abs(Number(number1)) ){
-				//document.getElementById("ssound").play();
-				count++;
-				setTimeout(function(){count = 0;$("#ssound")[0].load();$("#ssound")[0].play();},1100);
-			}
-			*/
 			
 		}
 
