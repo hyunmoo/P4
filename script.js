@@ -1,4 +1,8 @@
 $(document).ready(function(){
+	
+	var temp_x = 0;
+	var temp_xx = 0;
+	var count = 0;
 	console.log("ready");	
 	
 	$('#im').click(function(){
@@ -7,36 +11,42 @@ $(document).ready(function(){
 	$("#ssound")[0].play();
 		
 	});
-	
-	var temp_x = 0;
-	var count = 0;
 
 	var gradient = function(number2){
 		$('#im').css({"-webkit-transform": "rotate("+Number(number2)*10+"deg)"});
 	}
 	 
-	
 	var check = function (number1){
 		
 		if(count === 0){
 			temp_x = (Number(number1));
-			count++;		
+			count++;
+			if(temp_x === 0){
+				temp_x = 5;
+			}else if(temp_x < 0){
+				temp_x = -5;
+			}else{
+				temp_x = 5;
+			}
 			
 		}else if(count === 1){
 			
-			if(temp_x < 0 && 0 < Number(number1)){ // temp_x가 음수 이고 number1이 양수일 때
+			temp_xx = (Number(number1));
+			if(temp_xx === 0){
+				temp_xx = 5;
+			}else if(temp_xx < 0){
+				temp_xx= -5;
+			}else{
+				temp_xx = 5;
+			}			
+			
+			if(temp_x + temp_xx === 0){ // 5+ -5 = 0, -5 + 5 = 0
 				count++;
 				$("#ssound")[0].load();
 				$("#ssound")[0].play();
 				setTimeout(function(){count = 0;},1100);
-			}
-			
-			if(temp_x >= 0 && 0 > Number(number1)){ // temp_x가 0이거나 양수 이고 number1이 음수일 때
-				count++;
-				$("#ssound")[0].load();
-				$("#ssound")[0].play();		
-				setTimeout(function(){count = 0;},1100);		
-			}
+			}		
+
 			/*
 			if( temp_x != Math.abs(Number(number1)) ){
 				//document.getElementById("ssound").play();
