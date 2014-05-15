@@ -28,10 +28,13 @@ $(document).ready(function(){
 			}else{
 				temp_x = 5;
 			}
-			
+			$("#tVal").html(count);
+			$("#cVal").html(temp_x);
 		}else if(count === 1){
-			
 			temp_xx = (Number(number1));
+			$("#tVal").html(count);
+			$("#aVal").html(temp_xx);
+			
 			if(temp_xx === 0){
 				temp_xx = 5;
 			}else if(temp_xx < 0){
