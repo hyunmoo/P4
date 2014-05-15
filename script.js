@@ -70,6 +70,7 @@ $(document).ready(function(){
 		
 		$("#xVal").html(Math.round(x));
 		gradient(Math.round(x));
+		check(Math.round(x));
 		$("#yVal").html(y);
 		$("#zVal").html(z);		
 		
@@ -87,7 +88,7 @@ $(document).ready(function(){
 		newX = Math.max(0, newX);
 		newX = Math.min(maxX, newX);
 		//$("#tVal").html(Math.abs(Number(newX)));
-		check(Number(newX));
+		//check(Number(newX));
 		
 
 		$("#ball").css("left", Math.round(newX));
