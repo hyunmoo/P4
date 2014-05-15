@@ -49,7 +49,7 @@ $(document).ready(function(){
 				count++;
 				$("#ssound")[0].load();
 				$("#ssound")[0].play();
-				/*
+				
 				var timer = setInterval(function(){
 					$("#im").animate({ marginLeft: "30px" }, 50, "", function () {
 						$(this).animate({ marginLeft: "0px" }, 50, "", function () { 
@@ -57,8 +57,8 @@ $(document).ready(function(){
 					});
 					clearInterval(timer);    
 					}, 1000);
-				*/
-				$('#im').effect('bounce', {times:3}, 1000);
+				
+				
 				setTimeout(function(){count = 0;},600);
 			}		
 
