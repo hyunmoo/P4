@@ -73,11 +73,17 @@ $(document).ready(function(){
 	    var y = event.accelerationIncludingGravity.y;
 	    var z = event.accelerationIncludingGravity.z;
 		
-		$("#xVal").html(Math.round(x));
-		gradient(Math.round(x));
-		check(Math.round(x));
+		var alpha = 0.6;
+		var revision = 0;
+		revision = (alpha * revision) + (1-alpha * x);
+		
+		$("#xVal").html(Math.round(revision));
+		gradient(Math.round(revision));
+		check(Math.round(revision));
+		
 		$("#yVal").html(y);
 		$("#zVal").html(z);		
+		
 		
 		var maxX = window.innerWidth - $("#ball").width();
 		var maxY = window.innerHeight - $("#ball").height();
