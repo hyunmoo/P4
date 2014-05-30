@@ -3,6 +3,7 @@ $(document).ready(function(){
 	var temp_x = 0;
 	var temp_xx = 0;
 	var count = 0;
+	$( "#phaser_1" ).fadeOut( "past" );
 	console.log("ready");	
 
 	$('#im').click(function(){
@@ -14,18 +15,29 @@ $(document).ready(function(){
 
 	var gradient = function(number2){
 		$('#im').css({"-webkit-transform": "rotate("+Number(number2)*10+"deg)"});
-	}
-	 
+	};
+	var modify = function(number3){
+			if(number3 > 0){
+				return number3 = 5;
+			}else if(number3 < 0){
+				return number3 = -5;
+			}
+	};
 	var check = function (number1){
 		if(count === 0) {
-			temp_x = number1;
+			temp_x = modify(number1);
 			count++;
 		}else if(count === 1){
-			if(temp_x != number1){
+			temp_xx = modify(number1);
+			if(temp_x != temp_xx){
+				
+				if(temp_x + temp_xx === 0){ // 5+ -5 = 0, -5 + 5 = 0
+					music.play();
+					count = 0;
+				}
 				//$("#ssound")[0].load();
 			    //$("#ssound")[0].play();
-				music.play();
-				count = 0;
+
 			}
 		}
 		/*
@@ -77,7 +89,7 @@ $(document).ready(function(){
 		}
 		*/
 
-	}
+	};
 
 	function handleMotionEvent(event) {
 
@@ -128,7 +140,7 @@ $(document).ready(function(){
 		$("#ball").css("top", Math.round(newY));
 
 
-	}
+	};
 
 	window.addEventListener("devicemotion", handleMotionEvent, true);
 

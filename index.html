@@ -48,31 +48,25 @@
 
 	function preload() {
 
-    game.load.image('disk', 'assets/sprites/ra_dont_crack_under_pressure.png');
+    	//game.load.image('disk', 'assets/sprites/ra_dont_crack_under_pressure.png');
 
-    //  Firefox doesn't support mp3 files, so use ogg
-    game.load.audio('boden', ['maracas.mp3']);
+    	//  Firefox doesn't support mp3 files, so use ogg
+    	game.load.audio('boden', ['maracas.mp3']);
 
-}
+    }
+	
+    var music;
 
-var s;
-var music;
+    function create() {
 
-function create() {
+    	//game.stage.backgroundColor = '#182d3b';
+    	game.input.touch.preventDefault = false;
 
-    game.stage.backgroundColor = '#182d3b';
-    game.input.touch.preventDefault = false;
+    	music = game.add.audio('boden');
 
-    music = game.add.audio('boden');
+   	 game.input.onDown.add(changeVolume, this);
 
-    
-
-    s = game.add.sprite(game.world.centerX, game.world.centerY, 'disk');
-    s.anchor.setTo(0.5, 0.5);
-
-    game.input.onDown.add(changeVolume, this);
-
-}
+	}
 
 function changeVolume(pointer) {
 
@@ -88,7 +82,7 @@ function changeVolume(pointer) {
 }
 
 function update() {
-    s.rotation += 0.01;
+
 }
 
 function render() {
