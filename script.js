@@ -17,7 +17,16 @@ $(document).ready(function(){
 	}
 	 
 	var check = function (number1){
-		
+		if(count === 0) {
+			temp_x = number1;
+			count++;
+		}else if(count === 1){
+			if(temp_x != number1){
+				
+				count = 0;
+			}
+		}
+		/*
 		if(count === 0){
 			temp_x = (Number(number1));
 			count++;
@@ -64,6 +73,7 @@ $(document).ready(function(){
 
 			
 		}
+		*/
 
 	}
 
