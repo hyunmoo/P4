@@ -44,9 +44,9 @@
     <div id="phaser_1">
     </div>
     <script>
-	var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+	var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser_1', { preload: preload, create: create, update: update, render: render });
 
-function preload() {
+	function preload() {
 
     game.load.image('disk', 'assets/sprites/ra_dont_crack_under_pressure.png');
 
@@ -65,7 +65,7 @@ function create() {
 
     music = game.add.audio('boden');
 
-    music.play();
+    
 
     s = game.add.sprite(game.world.centerX, game.world.centerY, 'disk');
     s.anchor.setTo(0.5, 0.5);
