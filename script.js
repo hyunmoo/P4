@@ -22,7 +22,8 @@ $(document).ready(function(){
 			count++;
 		}else if(count === 1){
 			if(temp_x != number1){
-				
+				$("#ssound")[0].load();
+			    $("#ssound")[0].play();
 				count = 0;
 			}
 		}
