@@ -1,5 +1,56 @@
 $(document).ready(function(){
-	
+	var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser_1', { preload: preload, create: create, update: update, render: render });
+
+	function preload() {
+
+  	 // game.load.image('disk', 'assets/sprites/ra_dont_crack_under_pressure.png');
+
+    //  Firefox doesn't support mp3 files, so use ogg
+   	 game.load.audio('boden', ['maracas.mp3']);
+
+	}
+
+var s;
+var music;
+
+function create() {
+
+    game.stage.backgroundColor = '#182d3b';
+    game.input.touch.preventDefault = false;
+
+    music = game.add.audio('boden');
+
+ //   music.play();
+
+    s = game.add.sprite(game.world.centerX, game.world.centerY, 'disk');
+    s.anchor.setTo(0.5, 0.5);
+
+    game.input.onDown.add(changeVolume, this);
+
+}
+
+function changeVolume(pointer) {
+
+    if (pointer.y < 300)
+    {
+        music.volume += 0.1;
+    }
+    else
+    {
+        music.volume -= 0.1;
+    }
+
+}
+
+function update() {
+    s.rotation += 0.01;
+}
+
+function render() {
+    game.debug.soundInfo(music, 20, 32);
+}
+
+
 	var temp_x = 0;
 	var temp_xx = 0;
 	var count = 0;
@@ -22,8 +73,9 @@ $(document).ready(function(){
 			count++;
 		}else if(count === 1){
 			if(temp_x != number1){
-				$("#ssound")[0].load();
-			    $("#ssound")[0].play();
+				//$("#ssound")[0].load();
+			    //$("#ssound")[0].play();
+				music.play();
 				count = 0;
 			}
 		}

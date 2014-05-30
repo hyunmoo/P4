@@ -29,3 +29,8 @@ html, body {
 	-webkit-transform:rotate(30deg);
 	transform:rotate(30deg);
 }
+
+#phaser_1{
+	top : 70%;
+	left : 50%;
+}
